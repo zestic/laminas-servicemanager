@@ -197,7 +197,7 @@ class ServiceManager implements ServiceLocatorInterface
     }
 
     /** {@inheritDoc} */
-    public function get($name)
+    public function get(string $name)
     {
         // We start by checking if we have cached the requested service;
         // this is the fastest method.
@@ -269,7 +269,7 @@ class ServiceManager implements ServiceLocatorInterface
      * @param string|class-string $name
      * @return bool
      */
-    public function has($name)
+    public function has(string $name): bool
     {
         // Check static services and factories first to speedup the most common requests.
         return $this->staticServiceOrFactoryCanCreate($name) || $this->abstractFactoryCanCreate($name);
